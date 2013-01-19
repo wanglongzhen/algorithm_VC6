@@ -183,5 +183,11 @@ void printNumberOfBinary(int n);
 精确表达一个浮点数
                                                                      */
 /************************************************************************/
-void FindFraction(int decmial, int repetend);
+void FindFraction(int decimal, int repetend);
+
+/************************************************************************/
+/* 编程之美2.7求最大公约数
+                                                                     */
+/************************************************************************/
+int gcd(int x, int y);
 #endif //ALGORITHM_H_h_01

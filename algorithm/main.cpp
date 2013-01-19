@@ -25,5 +25,11 @@ int main()
 
 	cout<<"numberOfOne: "<<numberOfOne(7)<<endl;
 	
+
+	cout<<"FindFraction: "<<endl;
+	FindFraction(33, 33333);
+	cout<<"FindFraction: End"<<endl;
+
+
 	printNumberOfBinary(6);
 }

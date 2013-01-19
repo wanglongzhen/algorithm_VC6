@@ -124,7 +124,49 @@ void printNumberOfBinary(int n)
 	cout<<n % 2;
 }
 
-void FindFraction(int decmial, int repetend)
+/************************************************************************/
+/* 编程之美2.6
+精确表达一个浮点数 比如小数X= 0.a1a2a3...an(b1b2b3...bm)
+ decimal 表示小数的个数a1a2a3...an的数字个数
+repetend 表示b1b2b3...bm的数字个数，这个函数对于计算比较大的数还是有bug的
+超过int的位数就容易溢出错误。
+                                                                  */
+/************************************************************************/
+void FindFraction(int decimal, int repetend)
 {
+	unsigned int numOfDecimal = 1;
+	unsigned int numOfRepetend = 1;
 
+	int tmp = decimal;
+	while(tmp)
+	{
+		tmp /= 10;
+		numOfDecimal *= 10;
+	}
+
+	tmp = repetend;
+	while(tmp)
+	{
+		tmp /= 10;
+		numOfRepetend *= 10;
+	}
+
+	unsigned int numerator = decimal * (numOfRepetend - 1) + repetend;
+	unsigned int denominator = (numOfRepetend - 1) * numOfDecimal;
+
+
+	//分子和分母互相约分得到最小的分子和分母，然后在输出
+	int ngcd = gcd(numerator, denominator);
+
+	cout<<numerator / ngcd<<endl;
+	cout<<denominator / ngcd<<endl;
+}
+
+/************************************************************************/
+/* 编程之美2.7求最大公约数
+                                                                     */
+/************************************************************************/
+int gcd(int x, int y)
+{
+	return (!y) ? x : gcd(y, x % y);
 }
